@@ -17,13 +17,11 @@ def replaceREFS(siteData):
     if type(siteData) == dict:
         for i in siteData:
             replaceREFSAux(siteData, i)
-        return siteData
     elif type(siteData) == list:
         for i in range(len(siteData)):
             replaceREFSAux(siteData, i)
-        return siteData
-    else:
-        return siteData
+
+    return siteData
 
 
 def replaceREFSAux(siteData, i):
