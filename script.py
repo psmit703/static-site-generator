@@ -13,7 +13,8 @@ def replaceREFS(siteData):
         for key in siteData:
             if type(siteData[key]) == str:
                 if siteData[key].startswith("$REF-"):
-                    siteData[key] = json.loads(open(siteData[key][5:]).read())
+                    with open(siteData[key][5:], "r") as file:
+                        siteData[key] = json.loads(file.read())
                 else:
                     siteData[key] = replaceREFS(siteData[key])
             siteData[key] = replaceREFS(siteData[key])
@@ -22,7 +23,8 @@ def replaceREFS(siteData):
         for i in range(len(siteData)):
             if type(siteData[i]) == str:
                 if siteData[i].startswith("$REF-"):
-                    siteData[i] = json.loads(open(siteData[i][5:]).read())
+                    with open(siteData[i][5:], "r") as file:
+                        siteData[i] = json.loads(file.read())
                 else:
                     siteData[i] = replaceREFS(siteData[i])
             siteData[i] = replaceREFS(siteData[i])
@@ -35,7 +37,9 @@ def replaceREFS(siteData):
 
 
 def main():
-    siteJSON = json.loads(open("site.json").read())
+    with open("site.json", "r") as file:
+        siteJSON = json.loads(file.read())
+
     replaceREFS(siteJSON)
 
 
