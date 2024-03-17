@@ -63,7 +63,7 @@ site = {
                     "scriptSource": relativeDirectory | URL | "",
                     "inLine": "true" | "false",
                     "inLineSource": "\$JS-" + (relativeDirectory | URL) | "",
-                    "scriptType": "text/javascript",
+                    "scriptType": scriptType | "",
                     "defer": "true" | "false",
                     "async": "true" | "false"
                 }
@@ -90,7 +90,7 @@ site = {
                     "scriptSource": relativeDirectory | URL | "",
                     "inLine": "true" | "false",
                     "inLineSource": "\$JS-" + (relativeDirectory | URL) | "",
-                    "scriptType": "text/javascript",
+                    "scriptType": scriptType | "",
                     "defer": "true" | "false",
                     "async": "true" | "false"
                 }
@@ -117,7 +117,7 @@ site = {
                     "scriptSource": relativeDirectory | URL | "",
                     "inLine": "true" | "false",
                     "inLineSource": "\$JS-" + (relativeDirectory | URL) | "",
-                    "scriptType": "text/javascript",
+                    "scriptType": scriptType | "",
                     "defer": "true" | "false",
                     "async": "true" | "false"
                 }
