@@ -7,6 +7,11 @@ import json
 def replaceREFS(siteData):
     # replaces all REFs ("$REF-...") in siteData JSON/dict with the actual data from other JSON files
     # recursive function
+
+    # this has NOT been tested with single-layer references
+    # i.e., if a reference itself has another reference, it may not work as expected
+    # however this is not something I currently need
+
     # dict() | list() -> dict() | list() | str()
 
     if type(siteData) == dict:
