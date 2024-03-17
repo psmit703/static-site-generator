@@ -10,6 +10,8 @@ While this will still require me to actually update the data, it will ensure it 
 
 ## JSON Schema
 
+Please forgive me this looks absolutely horrible when viewing on GitHub's website... I'll try to fix it at some point lol
+
 ### Full Site
 
 site = {
