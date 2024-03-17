@@ -10,6 +10,127 @@ While this will still require me to actually update the data, it will ensure it 
 
 ## JSON Schema
 
+### Full Site
+
+site = {
+    "siteName": siteName | "",
+    "favicon": relativeDirectory | URL | "",
+    "siteWideScripts": [
+        {
+            "scriptSource": relativeDirectory | URL | "",
+            "inLine": "true" | "false",
+            "inLineSource": "\$JS-" + (relativeDirectory | URL) | "",
+            "scriptType": scriptType | "",
+            "defer": "true" | "false",
+            "async": "true" | "false",
+            "skipPages": [
+                String: (name of one of the JSONs inside navbarPages, footerPages, or utilityPages)
+            ]
+        }
+    ],
+    "footerDetails": {
+        "copyright": {
+            "year": year-like string | "",
+            "text": copyrightNotice | "",
+        },
+        "contact": {
+            "email": email-like string | "",
+        }
+    },
+    "pageList": {
+        "navbarList": [
+            String: (name of one of the JSONs inside navbarPages)
+        ],
+        "footerList": [
+            String: (name of one of the JSONs inside footerPages)
+        ],
+        "utilityList": [
+            String: (name of one of the JSONs inside utilityPages)
+        ]
+    },
+    "navbarPages": {
+        pageName: {
+            "title": pageTitle | "",
+            "url": page subdirectory (e.g., "index.html" from "example.com/index.html"),
+            "description": pageDescription | "",
+            <!-- navWidth is used for custom widths for items in the navbar to maintain uniform centering -->
+            "navWidth": "float-like string" | "",
+            "overrideFavicon": "true" | "false",
+            "pageScripts": [
+                {
+                    "scriptSource": relativeDirectory | URL | "",
+                    "inLine": "true" | "false",
+                    "inLineSource": "\$JS-" + (relativeDirectory | URL) | "",
+                    "scriptType": "text/javascript",
+                    "defer": "true" | "false",
+                    "async": "true" | "false"
+                }
+            ],
+            <!-- pageName in the content field should be the same as the pageName that is the name of this JSON -->
+            <!-- see section "Individual Page Content" -->
+            "content": "\$REF-./navbarPages/pageName.json" | "",
+            "type": "sitePage" | "directLink",
+            "linkName": linkName for navbar, etc.,
+            <!-- skip this page for site generation purposes (useful for preserving the template page) -->
+            "skip": "true" | "false"
+        }
+    },
+    "footerPages": {
+        pageName: {
+            "title": pageTitle | "",
+            "url": page subdirectory (e.g., "index.html" from "example.com/index.html"),
+            "description": pageDescription | "",
+            <!-- navWidth is used for custom widths for items in the navbar to maintain uniform centering -->
+            "navWidth": "float-like string" | "",
+            "overrideFavicon": "true" | "false",
+            "pageScripts": [
+                {
+                    "scriptSource": relativeDirectory | URL | "",
+                    "inLine": "true" | "false",
+                    "inLineSource": "\$JS-" + (relativeDirectory | URL) | "",
+                    "scriptType": "text/javascript",
+                    "defer": "true" | "false",
+                    "async": "true" | "false"
+                }
+            ],
+            <!-- pageName in the content field should be the same as the pageName that is the name of this JSON -->
+            <!-- see section "Individual Page Content" -->
+            "content": "\$REF-./navbarPages/pageName.json" | "",
+            "type": "sitePage" | "directLink",
+            "linkName": linkName for navbar, etc.,
+            <!-- skip this page for site generation purposes (useful for preserving the template page) -->
+            "skip": "true" | "false"
+        }
+    },
+    "utilityPages": {
+        pageName: {
+            "title": pageTitle | "",
+            "url": page subdirectory (e.g., "index.html" from "example.com/index.html"),
+            "description": pageDescription | "",
+            <!-- navWidth is used for custom widths for items in the navbar to maintain uniform centering -->
+            "navWidth": "float-like string" | "",
+            "overrideFavicon": "true" | "false",
+            "pageScripts": [
+                {
+                    "scriptSource": relativeDirectory | URL | "",
+                    "inLine": "true" | "false",
+                    "inLineSource": "\$JS-" + (relativeDirectory | URL) | "",
+                    "scriptType": "text/javascript",
+                    "defer": "true" | "false",
+                    "async": "true" | "false"
+                }
+            ],
+            <!-- pageName in the content field should be the same as the pageName that is the name of this JSON -->
+            <!-- see section "Individual Page Content" -->
+            "content": "$REF-./navbarPages/pageName.json" | "",
+            "type": "sitePage" | "directLink",
+            "linkName": linkName for navbar, etc.,
+            <!-- skip this page for site generation purposes (useful for preserving the template page) -->
+            "skip": "true" | "false"
+        }
+    }
+}
+
 ### Individual Page Content
 
 <!-- please note that "variables" in this schema with the same name are NOT
@@ -32,9 +153,9 @@ content = {
                     "id": HTML id string | "",
                     "title": titleAttribute | "",
                     "altText": altTextAttribute | "",
-                    "resourceLink": relativeDirectoryOrURL | "",
-                    "hyperlink": relativeDirectorOrURL | "",
-                    "text": "$MD-" + relativeDirectoryForMarkdown | text | "",
+                    "resourceLink": relativeDirectory | URL | "",
+                    "hyperlink": relativeDirector | URL | "",
+                    "text": "\$MD-" + relativeDirectoryForMarkdown | text | "",
                     "card": {
                         "title": cardTitle | "",
                         "dates": string date range, enclosed by parentheses | "",
