@@ -1,0 +1,257 @@
+{
+    "siteName": "Pete Smith",
+    "favicon": "favicon.ico",
+    "siteWideScripts": [
+        {
+            "scriptSource": "",
+            "inLine": "false",
+            "scriptType": "text/javascript",
+            "defer": "false",
+            "async": "false",
+            "skipPages": []
+        }
+    ],
+    "footerDetails": {
+        "copyright": {
+            "year": "2024",
+            "text": "&copy; Pete Smith"
+        },
+        "contact": {
+            "email": ""
+        }
+    },
+    "pageList": {
+        "navbarList": [
+            "index",
+            "resume",
+            "publications",
+            "coding",
+            "writing"
+        ],
+        "footerList": [
+            "changelog",
+            "sitemap",
+            "privacy"
+        ],
+        "utilityList": [
+            "404",
+            "template",
+            "XMLSITEMAP"
+        ]
+    },
+    "navbarPages": {
+        "index": {
+            "title": "Home",
+            "url": "index.html",
+            "description": "A website for all things Pete Smith",
+            "navWidth": "",
+            "overrideFavicon": "false",
+            "pageScripts": [
+                {
+                    "scriptSource": "",
+                    "inLine": "false",
+                    "scriptType": "text/javascript",
+                    "defer": "false",
+                    "async": "false"
+                }
+            ],
+            "content": "$REF-./navbarPages/index.json",
+            "type": "sitePage",
+            "linkName": "Home",
+            "skip": "false"
+        },
+        "resume": {
+            "title": "Résumé",
+            "url": "resume.html",
+            "description": "My résumé",
+            "navWidth": "",
+            "overrideFavicon": "false",
+            "pageScripts": [
+                {
+                    "scriptSource": "",
+                    "inLine": "false",
+                    "scriptType": "text/javascript",
+                    "defer": "false",
+                    "async": "false"
+                }
+            ],
+            "content": "$REF-./navbarPages/resume.json",
+            "type": "sitePage",
+            "linkName": "Résumé",
+            "skip": "false"
+        },
+        "publications": {
+            "title": "Publications",
+            "url": "publications.html",
+            "description": "My publications",
+            "navWidth": "",
+            "overrideFavicon": "false",
+            "pageScripts": [
+                {
+                    "scriptSource": "",
+                    "inLine": "false",
+                    "scriptType": "text/javascript",
+                    "defer": "false",
+                    "async": "false"
+                }
+            ],
+            "content": "$REF-./navbarPages/publications.json",
+            "type": "sitePage",
+            "linkName": "Publications",
+            "skip": "false"
+        },
+        "coding": {
+            "title": "Coding",
+            "url": "coding.html",
+            "description": "My coding projects",
+            "navWidth": "",
+            "overrideFavicon": "false",
+            "pageScripts": [
+                {
+                    "scriptSource": "",
+                    "inLine": "false",
+                    "scriptType": "text/javascript",
+                    "defer": "false",
+                    "async": "false"
+                }
+            ],
+            "content": "$REF-./navbarPages/coding.json",
+            "type": "sitePage",
+            "linkName": "Coding Projects",
+            "skip": "false"
+        },
+        "writing": {
+            "title": "Writing",
+            "url": "writing.html",
+            "description": "My writing samples",
+            "navWidth": "",
+            "overrideFavicon": "false",
+            "pageScripts": [
+                {
+                    "scriptSource": "",
+                    "inLine": "false",
+                    "scriptType": "text/javascript",
+                    "defer": "false",
+                    "async": "false"
+                }
+            ],
+            "content": "$REF-./navbarPages/writing.json",
+            "type": "sitePage",
+            "linkName": "Writing Samples",
+            "skip": "false"
+        }
+    },
+    "footerPages": {
+        "changelog": {
+            "title": "Changelog for psmit.dev",
+            "url": "changelog.html",
+            "description": "Changelog for Pete Smith's website",
+            "overrideFavicon": "false",
+            "pageScripts": [
+                {
+                    "scriptSource": "",
+                    "inLine": "false",
+                    "scriptType": "text/javascript",
+                    "defer": "false",
+                    "async": "false"
+                }
+            ],
+            "content": "$REF-./footerPages/changelog.json",
+            "type": "sitePage",
+            "linkName": "Recent Changelog",
+            "skip": "false"
+        },
+        "sitemap": {
+            "title": "Sitemap",
+            "url": "sitemap.html",
+            "description": "Text-based sitemap for psmit.dev",
+            "overrideFavicon": "false",
+            "pageScripts": [
+                {
+                    "scriptSource": "",
+                    "inLine": "false",
+                    "scriptType": "text/javascript",
+                    "defer": "false",
+                    "async": "false"
+                }
+            ],
+            "content": "$REF-./footerPages/sitemap.json",
+            "type": "sitePage",
+            "linkName": "Text Sitemap",
+            "skip": "false"
+        },
+        "githubRepo": {
+            "title": "GitHub Repository",
+            "url": "",
+            "type": "directLink",
+            "linkName": "GitHub Repository (External)",
+            "skip": "false"
+        },
+        "privacy": {
+            "title": "Privacy",
+            "url": "privacy.html",
+            "description": "Privacy notice for psmit.dev",
+            "overrideFavicon": "false",
+            "pageScripts": [
+                {
+                    "scriptSource": "",
+                    "inLine": "false",
+                    "scriptType": "text/javascript",
+                    "defer": "false",
+                    "async": "false"
+                }
+            ],
+            "content": "$REF-./footerPages/privacy.json",
+            "type": "sitePage",
+            "linkName": "Privacy Notice",
+            "skip": "false"
+        }
+    },
+    "utilityPages": {
+        "404": {
+            "title": "404",
+            "url": "404.html",
+            "description": "Error 404 page for psmit.dev",
+            "overrideFavicon": "false",
+            "pageScripts": [
+                {
+                    "scriptSource": "",
+                    "inLine": "false",
+                    "scriptType": "text/javascript",
+                    "defer": "false",
+                    "async": "false"
+                }
+            ],
+            "content": "$REF-./utilityPages/404.json",
+            "type": "sitePage",
+            "linkName": "Error 404",
+            "skip": "false"
+        },
+        "template": {
+            "title": "Template",
+            "url": "template.html",
+            "description": "Page template for psmit.dev",
+            "overrideFavicon": "false",
+            "pageScripts": [
+                {
+                    "scriptSource": "",
+                    "inLine": "false",
+                    "scriptType": "text/javascript",
+                    "defer": "false",
+                    "async": "false"
+                }
+            ],
+            "content": "$REF-./utilityPages/template.json",
+            "type": "sitePage",
+            "linkName": "Template Page",
+            "skip": "true"
+        },
+        "XMLSITEMAP": {
+            "title": "XML Sitemap",
+            "url": "sitemap.xml",
+            "type": "directLink",
+            "linkName": "XML Sitemap",
+            "skip": "false"
+        }
+    }
+}
