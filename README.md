@@ -10,10 +10,9 @@ While this will still require me to actually update the data, it will ensure it 
 
 ## JSON Schema
 
-Please forgive me this looks absolutely horrible when viewing on GitHub's website... I'll try to fix it at some point lol
-
 ### Full Site
 
+```
 site = {
     "siteName": siteName | "",
     "favicon": relativeDirectory | URL | "",
@@ -132,11 +131,13 @@ site = {
         }
     }
 }
+```
 
 ### Individual Page Content
 
 <!-- please note that "variables" in this schema with the same name are NOT
 necessarily the same variable - discretion should be used as appropriate -->
+```
 content = {
     "sections": [
         <!-- each entry in "sections" denotes a vertical portion of the page -->
@@ -180,3 +181,4 @@ content = {
         }
     ]
 }
+```
