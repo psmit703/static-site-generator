@@ -8,9 +8,12 @@ def replaceREFS(siteData):
     # replaces all REFs ("$REF-...") in siteData JSON/dict with the actual data from other JSON files
     # recursive function
 
-    # this has NOT been tested with single-layer references
-    # i.e., if a reference itself has another reference, it may not work as expected
-    # however this is not something I currently need
+    # NEITHER THIS NOR THE AUXILIARY FUNCTION SUPPORT CIRCULAR REFERENCES
+    # I haven't tested this with circular references, but I believe it will result in an infinite loop
+    # just don't do that
+    # please
+    # please do not use circular references
+    # :D
 
     # dict() | list() -> dict() | list() | str()
 
@@ -31,7 +34,7 @@ def replaceREFSAux(siteData, i):
     if type(siteData[i]) == str:
         if siteData[i].startswith("$REF-"):
             with open(siteData[i][5:], "r") as file:
-                siteData[i] = json.loads(file.read())
+                siteData[i] = replaceREFS(json.loads(file.read()))
         else:
             siteData[i] = replaceREFS(siteData[i])
     siteData[i] = replaceREFS(siteData[i])
