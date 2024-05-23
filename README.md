@@ -16,17 +16,30 @@ While this will still require me to actually update the data, it will ensure it 
 site = {
     "siteName": siteName | "",
     "favicon": relativeDirectory | URL | "",
+    "author": authorString | "",
+    "url": url of website, without any pages (e.g., "https://www.psmit.dev/") | "",
     "siteWideScripts": [
         {
             "scriptSource": relativeDirectory | URL | "",
             "inLine": "true" | "false",
             "inLineSource": "\$JS-" + (relativeDirectory | URL) | "",
-            "scriptType": scriptType | "",
-            "defer": "true" | "false",
-            "async": "true" | "false",
             "skipPages": [
-                String: (name of one of the JSONs inside navbarPages, footerPages, or utilityPages)
-            ]
+                String: (name of "title" field in one of the JSONs inside navbarPages, footerPages, or utilityPages)
+            ],
+            "notes": {
+                "attribute": string-like value | ""
+            }
+        }
+    ],
+    "siteWideStylesheets": [
+        {
+            "styleSource": relativeDirectory | URL | "",
+            "skipPages": [
+                String: (name of "title" field in one of one of the JSONs inside navbarPages, footerPages, or utilityPages)
+            ],
+            "notes": {
+                "attribute": string-like value | ""
+            }
         }
     ],
     "footerDetails": {
@@ -62,9 +75,17 @@ site = {
                     "scriptSource": relativeDirectory | URL | "",
                     "inLine": "true" | "false",
                     "inLineSource": "\$JS-" + (relativeDirectory | URL) | "",
-                    "scriptType": scriptType | "",
-                    "defer": "true" | "false",
-                    "async": "true" | "false"
+                    "notes": {
+                        "attribute": string-like value | ""
+                    }
+                }
+            ],
+            "pageStylesheets": [
+                {
+                    "styleSource": relativeDirectory | URL | "",
+                    "notes": {
+                        "attribute": string-like value | ""
+                    }
                 }
             ],
             <!-- pageName in the content field should be the same as the pageName that is the name of this JSON -->
@@ -89,9 +110,17 @@ site = {
                     "scriptSource": relativeDirectory | URL | "",
                     "inLine": "true" | "false",
                     "inLineSource": "\$JS-" + (relativeDirectory | URL) | "",
-                    "scriptType": scriptType | "",
-                    "defer": "true" | "false",
-                    "async": "true" | "false"
+                    "notes": {
+                        "attribute": string-like value | ""
+                    }
+                }
+            ],
+            "pageStylesheets": [
+                {
+                    "styleSource": relativeDirectory | URL | "",
+                    "notes": {
+                        "attribute": string-like value | ""
+                    }
                 }
             ],
             <!-- pageName in the content field should be the same as the pageName that is the name of this JSON -->
@@ -116,9 +145,17 @@ site = {
                     "scriptSource": relativeDirectory | URL | "",
                     "inLine": "true" | "false",
                     "inLineSource": "\$JS-" + (relativeDirectory | URL) | "",
-                    "scriptType": scriptType | "",
-                    "defer": "true" | "false",
-                    "async": "true" | "false"
+                    "notes": {
+                        "attribute": string-like value | ""
+                    }
+                }
+            ],
+            "pageStylesheets": [
+                {
+                    "styleSource": relativeDirectory | URL | "",
+                    "notes": {
+                        "attribute": string-like value | ""
+                    }
                 }
             ],
             <!-- pageName in the content field should be the same as the pageName that is the name of this JSON -->

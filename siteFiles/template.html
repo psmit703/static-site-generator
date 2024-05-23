@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en-US" dir="ltr">
+
+<!-- if using this as a template for a new page, be sure to edit the following -->
+<!-- 1. head -->
+<!-- a. title -->
+<!-- b. description -->
+<!-- c. canonical link -->
+<!-- d. page-specific script tags -->
+<!-- 2. body -->
+<!-- a. navbar -->
+<!-- i. navbar links, including for the navbar title -->
+<!-- ii. active page -->
+<!-- iii. screen reader tags -->
+<!-- b. container -->
+<!-- i. should probably remove all container content, but use discretion -->
+<!-- c. footer -->
+<!-- i. footer links -->
+
+<head>
+    <title>$REF-Title</title>
+    <link rel="icon" type="image/x-icon" href="$REF-Favicon">
+    <meta name="description" content="REF-Description">
+    <meta name="author" content="$REF-Author">
+
+    <meta name="robots" content="noindex, nofollow">
+    <link rel="canonical" href="$REF-Canonical">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="utf-8">
+
+    <!-- stylesheet for Bootstrap -->
+    $REF-Stylesheets
+
+
+    <!-- navbar button script -->
+    $REF-Scripts
+
+    <!-- structured data -->
+    <!-- not currently implemented -->
+</head>
+
+<body>
+    <!-- Load icons for light/dark mode toggle button -->
+    <!-- Intended to avoid potential slow icon loading times if the mode is manually switched -->
+    <img src="/assets/images/light-mode.svg" style="display:none;">
+    <img src="/assets/images/dark-mode.svg" style="display:none;">
+
+    <!-- dark mode toggle button -->
+    <div id="dark-mode-btn">
+        <input id="btn-circle" type="button"></input>
+    </div>
+
+    <!-- navbar -->
+    <nav class="navbar navbar-expand-md navbar-light bg-light py-2 mb-5 shadow fixed-top" id="navbar">
+        <div class="container">
+            <a class="navbar-brand navbar-brand-custom" href="/">Pete Smith
+            </a>
+
+            <!-- navbar toggle button - only visible in mobile format -->
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar-options"
+                aria-controls="navbar-options" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <!-- navbar links -->
+            <div class="collapse navbar-collapse" id="navbar-options">
+                <ul class="navbar-nav ml-auto" itemscope itemtype="https://schema.org/SiteNavigationElement">
+                    <li class="nav-item mx-2" itemprop="name">
+                        <a class="nav-link nav-home-custom text-center" href="/" itemprop="url">Home</a>
+                    </li>
+                    <li class="nav-item mx-2" itemprop="name">
+                        <a class="nav-link nav-resume-custom text-center" href="/resume.html" itemprop="url">Résumé</a>
+                    </li>
+                    <li class="nav-item mx-2" itemprop="name">
+                        <a class="nav-link nav-publications-custom text-center" href="/publications.html"
+                            itemprop="url">Publications</a>
+                    </li>
+                    <li class="nav-item mx-2" itemprop="name">
+                        <a class="nav-link nav-coding-custom text-center" href="/coding.html" itemprop="url">Coding
+                            Projects</a>
+                    </li>
+                    <li class="nav-item mx-2" itemprop="name">
+                        <a class="nav-link nav-writing-custom text-center" href="/writing.html" itemprop="url">Writing
+                            Samples</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container">
+        <div class="body-content-custom">
+            $REF-Body
+
+            <hr />
+
+            <!-- footer -->
+            <footer class="footer text-muted text-center" id="footer">
+                <p>&copy; $REF-Copyright | <a href="mailto:$REF-Contact">$REF-Contact</a></p>
+                <p><a href="/changelog.html">Changelog</a> | <a
+                        href="https://github.com/psmit703/personal-website">GitHub
+                        Repository</a></p>
+                <p><a href="/sitemap.html">Sitemap</a> | <a href="/privacy.html">Privacy Notice</a></p>
+                <p id="delete-cookies-wrapper"><span id="delete-cookies">Reset Dark Mode Preference</span></p>
+            </footer>
+        </div>
+    </div>
+
+    <!-- required for proper Bootstrap functionality -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+        integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.14.7/dist/umd/popper.min.js"
+        integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/js/bootstrap.min.js"
+        integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+        crossorigin="anonymous"></script>
+</body>
+
+</html>

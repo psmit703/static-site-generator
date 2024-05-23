@@ -1,15 +1,26 @@
 {
     "siteName": "Pete Smith",
-    "favicon": "favicon.ico",
+    "favicon": "/assets/images/favicon.ico",
+    "author": "Pete Smith",
+    "url": "https://psmit.dev/",
     "siteWideScripts": [
         {
             "scriptSource": "",
             "inLine": "false",
             "inLineSource": "",
-            "scriptType": "text/javascript",
-            "defer": "false",
-            "async": "false",
-            "skipPages": []
+            "skipPages": [],
+            "notes": {
+                "attribute": ""
+            }
+        }
+    ],
+    "siteWideStylesheets": [
+        {
+            "styleSource": "",
+            "skipPages": [],
+            "notes": {
+                "attribute": ""
+            }
         }
     ],
     "footerDetails": {
@@ -36,8 +47,7 @@
         ],
         "utilityList": [
             "404",
-            "template",
-            "XMLSITEMAP"
+            "template"
         ]
     },
     "navbarPages": {
@@ -47,14 +57,24 @@
             "description": "A website for all things Pete Smith",
             "navWidth": "",
             "overrideFavicon": "false",
-            "pageScripts": [
+            "siteWideScripts": [
                 {
                     "scriptSource": "",
                     "inLine": "false",
                     "inLineSource": "",
-                    "scriptType": "text/javascript",
-                    "defer": "false",
-                    "async": "false"
+                    "skipPages": [],
+                    "notes": {
+                        "attribute": ""
+                    }
+                }
+            ],
+            "siteWideStylesheets": [
+                {
+                    "styleSource": "",
+                    "skipPages": [],
+                    "notes": {
+                        "attribute": ""
+                    }
                 }
             ],
             "content": "$REF-./navbarPages/index.json",
@@ -68,14 +88,24 @@
             "description": "My résumé",
             "navWidth": "",
             "overrideFavicon": "false",
-            "pageScripts": [
+            "siteWideScripts": [
                 {
                     "scriptSource": "",
                     "inLine": "false",
                     "inLineSource": "",
-                    "scriptType": "text/javascript",
-                    "defer": "false",
-                    "async": "false"
+                    "skipPages": [],
+                    "notes": {
+                        "attribute": ""
+                    }
+                }
+            ],
+            "siteWideStylesheets": [
+                {
+                    "styleSource": "",
+                    "skipPages": [],
+                    "notes": {
+                        "attribute": ""
+                    }
                 }
             ],
             "content": "$REF-./navbarPages/resume.json",
@@ -89,14 +119,24 @@
             "description": "My publications",
             "navWidth": "",
             "overrideFavicon": "false",
-            "pageScripts": [
+            "siteWideScripts": [
                 {
                     "scriptSource": "",
                     "inLine": "false",
                     "inLineSource": "",
-                    "scriptType": "text/javascript",
-                    "defer": "false",
-                    "async": "false"
+                    "skipPages": [],
+                    "notes": {
+                        "attribute": ""
+                    }
+                }
+            ],
+            "siteWideStylesheets": [
+                {
+                    "styleSource": "",
+                    "skipPages": [],
+                    "notes": {
+                        "attribute": ""
+                    }
                 }
             ],
             "content": "$REF-./navbarPages/publications.json",
@@ -110,14 +150,24 @@
             "description": "My coding projects",
             "navWidth": "",
             "overrideFavicon": "false",
-            "pageScripts": [
+            "siteWideScripts": [
                 {
                     "scriptSource": "",
                     "inLine": "false",
                     "inLineSource": "",
-                    "scriptType": "text/javascript",
-                    "defer": "false",
-                    "async": "false"
+                    "skipPages": [],
+                    "notes": {
+                        "attribute": ""
+                    }
+                }
+            ],
+            "siteWideStylesheets": [
+                {
+                    "styleSource": "",
+                    "skipPages": [],
+                    "notes": {
+                        "attribute": ""
+                    }
                 }
             ],
             "content": "$REF-./navbarPages/coding.json",
@@ -131,14 +181,24 @@
             "description": "My writing samples",
             "navWidth": "",
             "overrideFavicon": "false",
-            "pageScripts": [
+            "siteWideScripts": [
                 {
                     "scriptSource": "",
                     "inLine": "false",
                     "inLineSource": "",
-                    "scriptType": "text/javascript",
-                    "defer": "false",
-                    "async": "false"
+                    "skipPages": [],
+                    "notes": {
+                        "attribute": ""
+                    }
+                }
+            ],
+            "siteWideStylesheets": [
+                {
+                    "styleSource": "",
+                    "skipPages": [],
+                    "notes": {
+                        "attribute": ""
+                    }
                 }
             ],
             "content": "$REF-./navbarPages/writing.json",
@@ -149,18 +209,28 @@
     },
     "footerPages": {
         "changelog": {
-            "title": "Changelog for psmit.dev",
+            "title": "Changelog",
             "url": "changelog.html",
             "description": "Changelog for Pete Smith's website",
             "overrideFavicon": "false",
-            "pageScripts": [
+            "siteWideScripts": [
                 {
                     "scriptSource": "",
                     "inLine": "false",
                     "inLineSource": "",
-                    "scriptType": "text/javascript",
-                    "defer": "false",
-                    "async": "false"
+                    "skipPages": [],
+                    "notes": {
+                        "attribute": ""
+                    }
+                }
+            ],
+            "siteWideStylesheets": [
+                {
+                    "styleSource": "",
+                    "skipPages": [],
+                    "notes": {
+                        "attribute": ""
+                    }
                 }
             ],
             "content": "$REF-./footerPages/changelog.json",
@@ -173,14 +243,24 @@
             "url": "sitemap.html",
             "description": "Text-based sitemap for psmit.dev",
             "overrideFavicon": "false",
-            "pageScripts": [
+            "siteWideScripts": [
                 {
                     "scriptSource": "",
                     "inLine": "false",
                     "inLineSource": "",
-                    "scriptType": "text/javascript",
-                    "defer": "false",
-                    "async": "false"
+                    "skipPages": [],
+                    "notes": {
+                        "attribute": ""
+                    }
+                }
+            ],
+            "siteWideStylesheets": [
+                {
+                    "styleSource": "",
+                    "skipPages": [],
+                    "notes": {
+                        "attribute": ""
+                    }
                 }
             ],
             "content": "$REF-./footerPages/sitemap.json",
@@ -188,26 +268,29 @@
             "linkName": "Text Sitemap",
             "skip": "false"
         },
-        "githubRepo": {
-            "title": "GitHub Repository",
-            "url": "",
-            "type": "directLink",
-            "linkName": "GitHub Repository (External)",
-            "skip": "false"
-        },
         "privacy": {
-            "title": "Privacy",
+            "title": "Privacy Notice",
             "url": "privacy.html",
             "description": "Privacy notice for psmit.dev",
             "overrideFavicon": "false",
-            "pageScripts": [
+            "siteWideScripts": [
                 {
                     "scriptSource": "",
                     "inLine": "false",
                     "inLineSource": "",
-                    "scriptType": "text/javascript",
-                    "defer": "false",
-                    "async": "false"
+                    "skipPages": [],
+                    "notes": {
+                        "attribute": ""
+                    }
+                }
+            ],
+            "siteWideStylesheets": [
+                {
+                    "styleSource": "",
+                    "skipPages": [],
+                    "notes": {
+                        "attribute": ""
+                    }
                 }
             ],
             "content": "$REF-./footerPages/privacy.json",
@@ -218,18 +301,28 @@
     },
     "utilityPages": {
         "404": {
-            "title": "404",
+            "title": "Error 404",
             "url": "404.html",
             "description": "Error 404 page for psmit.dev",
             "overrideFavicon": "false",
-            "pageScripts": [
+            "siteWideScripts": [
                 {
                     "scriptSource": "",
                     "inLine": "false",
                     "inLineSource": "",
-                    "scriptType": "text/javascript",
-                    "defer": "false",
-                    "async": "false"
+                    "skipPages": [],
+                    "notes": {
+                        "attribute": ""
+                    }
+                }
+            ],
+            "siteWideStylesheets": [
+                {
+                    "styleSource": "",
+                    "skipPages": [],
+                    "notes": {
+                        "attribute": ""
+                    }
                 }
             ],
             "content": "$REF-./utilityPages/404.json",
@@ -242,27 +335,30 @@
             "url": "template.html",
             "description": "Page template for psmit.dev",
             "overrideFavicon": "false",
-            "pageScripts": [
+            "siteWideScripts": [
                 {
                     "scriptSource": "",
                     "inLine": "false",
                     "inLineSource": "",
-                    "scriptType": "text/javascript",
-                    "defer": "false",
-                    "async": "false"
+                    "skipPages": [],
+                    "notes": {
+                        "attribute": ""
+                    }
+                }
+            ],
+            "siteWideStylesheets": [
+                {
+                    "styleSource": "",
+                    "skipPages": [],
+                    "notes": {
+                        "attribute": ""
+                    }
                 }
             ],
             "content": "$REF-./utilityPages/template.json",
             "type": "sitePage",
             "linkName": "Template Page",
             "skip": "true"
-        },
-        "XMLSITEMAP": {
-            "title": "XML Sitemap",
-            "url": "sitemap.xml",
-            "type": "directLink",
-            "linkName": "XML Sitemap",
-            "skip": "false"
         }
     }
 }
