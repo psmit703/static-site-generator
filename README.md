@@ -12,7 +12,7 @@ While this will still require me to actually update the data, it will ensure it 
 
 ### Full Site
 
-```
+```JSON
 site = {
     "siteName": siteName | "",
     "favicon": relativeDirectory | URL | "",
@@ -174,7 +174,7 @@ site = {
 
 <!-- please note that "variables" in this schema with the same name are NOT
 necessarily the same variable - discretion should be used as appropriate -->
-```
+```JSON
 content = {
     "sections": [
         <!-- each entry in "sections" denotes a vertical portion of the page -->
