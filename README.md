@@ -187,8 +187,8 @@ content = {
             "overrideBottomDelimiter": "false",
             "horizontalItems": [
                 {
-                    "rawHTML": valid HTML tag | "",
-                    "type": "image" | "text" | "markdown" | "card",
+                    "rawHTML": valid HTML tag | "\$HTML-" + relativeDirectoryForHTML | "",
+                    "type": "image" | "text" | "markdown" | "card" | "rawHTML",
                     "classes": string of HTML classes delimited by single spaces | "",
                     "id": HTML id string | "",
                     "title": titleAttribute | "",

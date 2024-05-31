@@ -90,10 +90,25 @@ def generateBody(template, pageData, siteData):
     return template.replace("$REF-Body", "".join(htmlList))
 
 
-def generateVertSection(template, sectionData, pageData, siteData):
-    # String -> JSON -> JSON -> JSON -> String
+def generateVertSection(sectionData, pageData, siteData):
+    # TODO: test
+    # JSON -> JSON -> JSON -> String
+    # generates the HTML for a vertical section of a page
 
-    raise NotImplementedError("generateVertSection() not implemented yet")
+    horizontalSections = []
+    for section in sectionData['horizontalItems']:
+        # generate HTML for each horizontal section of a vertical section
+        horizontalSections.append(generateHorizSection(
+            section, pageData, siteData))
+
+    return "\n".join(horizontalSections)
+
+
+def generateHorizSection(sectionData, pageData, siteData):
+    # JSON -> JSON -> JSON -> String
+    # generates the HTML for a horizontal section of a vertical section of a page
+
+    raise NotImplementedError("genHorizSection() not implemented yet")
 
 
 def replaceScripts(template, pageData, siteData):
@@ -186,6 +201,11 @@ def replaceREFSAux(siteData, i):
             # TODO: test
             # handles references to markdown or JavaScript files
             with open(siteData[i][4:], "r") as file:
+                siteData[i] = file.read()
+        elif siteData[i].startswith("$HTML-"):
+            # TODO: test
+            # handles references to HTML files
+            with open(siteData[i][7:], "r") as file:
                 siteData[i] = file.read()
         else:
             siteData[i] = replaceREFS(siteData[i])
