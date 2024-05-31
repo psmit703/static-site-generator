@@ -61,17 +61,21 @@ def generateBody(template, pageData, siteData):
     # outputs the edited template input
     # replaces $REF-Body with the actual body for the page
 
+    if len(pageData['content']['sections']) == 0:
+        # skip rest of function if no sections
+        return template.replace("$REF-Body", "")
+
     vertSections = []
     for section in pageData['content']['sections']:
+        # generate HTML for each vertical section of a page
         vertSections.append((generateVertSection(section, pageData, siteData),
                              section['overrideTopDelimiter'], section['overrideBottomDelimiter']))
-
-    if len(vertSections) == 0:
-        return template.replace("$REF-Body", "")
 
     htmlList = []
     i = 0
     while i < len(vertSections):
+        # handles horizontal rules between sections
+        # processes overrideTopDelimiter and overrideBottomDelimiter
         if i != 0 and vertSections[i][1] == "true":
             if htmlList[-1] == "<hr />":
                 htmlList.pop()
@@ -79,6 +83,8 @@ def generateBody(template, pageData, siteData):
         htmlList.append(vertSections[i][0])
 
         if i != len(vertSections) - 1 and vertSections[i][2] == "false":
+            # if the next section overrides its top delimiter, this will be removed
+            # in the next iteration in the first if statement of this while loop
             htmlList.append("<hr />")
 
     return template.replace("$REF-Body", "".join(htmlList))
@@ -172,11 +178,13 @@ def replaceREFSAux(siteData, i):
     # dict() | list() -> int -> void
 
     if type(siteData[i]) == str:
-        if siteData[i].startswith("$REF-"):
-            with open(siteData[i][5:], "r") as file:
+        if siteData[i].startswith("$JSON-"):
+            # handles references to other JSON files
+            with open(siteData[i][6:], "r") as file:
                 siteData[i] = replaceREFS(json.loads(file.read()))
         elif siteData[i].startswith("$MD-") or siteData[i].startswith("$JS-"):
             # TODO: test
+            # handles references to markdown or JavaScript files
             with open(siteData[i][4:], "r") as file:
                 siteData[i] = file.read()
         else:
