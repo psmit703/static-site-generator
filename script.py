@@ -2,6 +2,7 @@
 # JSON -> HTML -> list(HTML)
 
 import json
+import markdown as md
 
 
 def generatePage(pageData, siteData, section):
@@ -34,6 +35,9 @@ def generatePage(pageData, siteData, section):
     template = replaceStylesheets(template, pageData, siteData)
     template = replaceScripts(template, pageData, siteData)
 
+    # generate navbar
+    template = generateNavBar(template, pageData, siteData)
+
     # generate body
     template = generateBody(template, pageData, siteData)
 
@@ -47,11 +51,43 @@ def generatePage(pageData, siteData, section):
         file.write(template)
 
 
-def genreteBody(template, pageData, siteData):
+def generateNavBar(template, pageData, siteData):
+    raise NotImplementedError("genNavBar() not implemented yet")
+
+
+def generateBody(template, pageData, siteData):
+    # TODO: test
     # String -> JSON -> JSON -> String
     # outputs the edited template input
     # replaces $REF-Body with the actual body for the page
-    raise NotImplementedError("generateBody() not implemented yet")
+
+    vertSections = []
+    for section in pageData['content']['sections']:
+        vertSections.append((generateVertSection(section, pageData, siteData),
+                             section['overrideTopDelimiter'], section['overrideBottomDelimiter']))
+
+    if len(vertSections) == 0:
+        return template.replace("$REF-Body", "")
+
+    htmlList = []
+    i = 0
+    while i < len(vertSections):
+        if i != 0 and vertSections[i][1] == "true":
+            if htmlList[-1] == "<hr />":
+                htmlList.pop()
+
+        htmlList.append(vertSections[i][0])
+
+        if i != len(vertSections) - 1 and vertSections[i][2] == "false":
+            htmlList.append("<hr />")
+
+    return template.replace("$REF-Body", "".join(htmlList))
+
+
+def generateVertSection(template, sectionData, pageData, siteData):
+    # String -> JSON -> JSON -> JSON -> String
+
+    raise NotImplementedError("generateVertSection() not implemented yet")
 
 
 def replaceScripts(template, pageData, siteData):
@@ -139,6 +175,10 @@ def replaceREFSAux(siteData, i):
         if siteData[i].startswith("$REF-"):
             with open(siteData[i][5:], "r") as file:
                 siteData[i] = replaceREFS(json.loads(file.read()))
+        elif siteData[i].startswith("$MD-") or siteData[i].startswith("$JS-"):
+            # TODO: test
+            with open(siteData[i][4:], "r") as file:
+                siteData[i] = file.read()
         else:
             siteData[i] = replaceREFS(siteData[i])
     siteData[i] = replaceREFS(siteData[i])
