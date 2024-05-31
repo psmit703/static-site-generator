@@ -95,13 +95,58 @@ def generateVertSection(sectionData, pageData, siteData):
     # JSON -> JSON -> JSON -> String
     # generates the HTML for a vertical section of a page
 
+    if len(sectionData['horizontalItems']) == 0:
+        return ""
+
     horizontalSections = []
     for section in sectionData['horizontalItems']:
         # generate HTML for each horizontal section of a vertical section
         horizontalSections.append(generateHorizSection(
             section, pageData, siteData))
 
-    return "\n".join(horizontalSections)
+    if len(horizontalSections) > 1:
+        # handles multiple horizontal sections
+        # i.e., needs a row system
+        if len(horizontalSections) > 3:
+            # case for four or more horizontal sections
+            # uses col-sm
+            i = 0
+            while i < len(horizontalSections):
+                if horizontalSections[i].startsWith("<div class=\""):
+                    horizontalSections[i] = horizontalSections[i][0:12] + "col-sm " + \
+                        horizontalSections[i][12:]
+                else:
+                    horizontalSections[i] = horizontalSections[i][0:4] + " class=\"col-sm\" " + \
+                        horizontalSections[i][4:]
+                i += 1
+        else:
+            # case for three or fewer horizontal sections
+            # uses col-md
+            i = 0
+            while i < len(horizontalSections):
+                if horizontalSections[i].startsWith("<div class=\""):
+                    horizontalSections[i] = horizontalSections[i][0:12] + "col-md " + \
+                        horizontalSections[i][12:]
+                else:
+                    # assumes it starts with "<div" and has no classes
+                    horizontalSections[i] = horizontalSections[i][0:4] + " class=\"col-md\" " + \
+                        horizontalSections[i][4:]
+                i += 1
+
+        row = "\n".join(horizontalSections)
+        if sectionData['htmlClass'] != "":
+            # adds custom classes in addition to the default "row" class
+            row = f"<div class=\"row {sectionData['htmlClass']}\">\n" + \
+                row + "\n</div>"
+        else:
+            row = "<div class=\"row\">\n" + row + "\n</div>"
+
+        return row
+
+    else:
+        # case for only one horizontal section
+        # i.e., no need for a row
+        return horizontalSections[0]
 
 
 def generateHorizSection(sectionData, pageData, siteData):

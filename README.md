@@ -185,6 +185,10 @@ content = {
             <!-- horizontally configured items are not delimited -->
             "overrideTopDelimiter": "false",
             "overrideBottomDelimiter": "false",
+            "title": string | "",
+            "titleId": string | "",
+            "notes": [string] | [],
+            "htmlClasses": [string] | [],
             "horizontalItems": [
                 {
                     "rawHTML": valid HTML tag | "\$HTML-" + relativeDirectoryForHTML | "",
