@@ -134,14 +134,26 @@ def generateVertSection(sectionData, pageData, siteData):
                 i += 1
 
         row = "\n".join(horizontalSections)
-        if sectionData['htmlClass'] != "":
+        if sectionData['htmlClasses'] != "":
             # adds custom classes in addition to the default "row" class
-            row = f"<div class=\"row {sectionData['htmlClass']}\">\n" + \
+            row = f"<div class=\"row {sectionData['htmlClasses']}\">\n" + \
                 row + "\n</div>"
         else:
             row = "<div class=\"row\">\n" + row + "\n</div>"
 
-        return row
+        title = ""
+        if sectionData['title'] != "" and sectionData['titleId'] != "":
+            # adds a title to the vertical section
+            title = f"<h4 id={sectionData['titleId']} class=\"text-center\">{sectionData['title']}</h4>\n"
+        elif sectionData['title'] != "":
+            title = f"<h4 class=\"text-center\">{sectionData['title']}</h4>\n"
+
+        notes = ""
+        if sectionData['notes'] != "":
+            # adds notes to the vertical section
+            notes = f"<h5 class=\"text-center\"><i>{sectionData['notes']}</i></h5>\n"
+
+        return title + notes + row
 
     else:
         # case for only one horizontal section
