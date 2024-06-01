@@ -164,6 +164,7 @@ def generateVertSection(sectionData, pageData, siteData):
 def generateHorizSection(sectionData, pageData, siteData):
     # JSON -> JSON -> JSON -> String
     # generates the HTML for a horizontal section of a vertical section of a page
+    # TODO: test this entire thing lmfao
 
     match type:
         case "image":
