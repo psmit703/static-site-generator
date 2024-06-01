@@ -65,7 +65,8 @@ site = {
     "navbarPages": {
         pageName: {
             "title": pageTitle | "",
-            "url": page subdirectory (e.g., "index.html" from "example.com/index.html"),
+            "navTitle": titleOfPageInNavbar | "",
+            "url": page subdirectory (e.g., "index.html" from "example.com/index.html") | "",
             "description": pageDescription | "",
             <!-- navWidth is used for custom widths for items in the navbar to maintain uniform centering -->
             "navWidth": "float-like string" | "",
