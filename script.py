@@ -52,7 +52,38 @@ def generatePage(pageData, siteData, section):
 
 
 def generateNavBar(template, pageData, siteData):
-    raise NotImplementedError("genNavBar() not implemented yet")
+    # String -> JSON -> JSON -> String
+    # outputs the edited template input
+    # replaces navbar placeholders with correct html
+    # TODO: test
+
+    template = template.replace("$REF-NavTitle", siteData['siteName'])
+    template = template.replace(
+        "$REF-NavTitleHref", "#" if pageData['title'] == "Home" else "/")
+
+    navItems = []
+    for each in siteData['navbarList']:
+        pageTitle = siteData['navbarList'][each]['title']
+        nameInNavbar = siteData['navbarList'][each]['navTitle']
+        href = "/" + siteData['navbarList'][each]['url']
+        width = siteData['navbarList'][each]['navWidth']
+
+        if pageTitle == pageData['title']:
+            # indicates current page
+            item = "<li class=\"nav-item mx-2 active active-custom\" itemprop=\"name\">\n" + \
+                   f"<a class=\"nav-link\" href=\"#\" style=\"width: {width}; " + \
+                   f"padding: 8px;\" itemprop=\"url\">{nameInNavbar}<span class=\"sr-only\">" + \
+                   f" (current)</span></a></li>"
+            navItems.append(item)
+        else:
+            # any other page in navbar
+            item = "<li class=\"nav-item mx-2\" itemprop=\"name\">\n" + \
+                   f"<a class=\"nav-link\" href=\"{href}\" style=\"width: {width}; " + \
+                   f"padding: 8px;\" itemprop=\"url\">{nameInNavbar}</a></li>"
+            navItems.append(item)
+
+    navItems = "\n".join(navItems)
+    return template.replace("$REF-NavItems", navItems)
 
 
 def generateBody(template, pageData, siteData):
