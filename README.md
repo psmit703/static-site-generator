@@ -212,12 +212,14 @@ content = {
                             {
                                 "title": sectionTitle | "",
                                 "sectionText": "$MD-" + relativeDirectoryForMarkdown | text | "",
+                                "sectionNotes": string | ""
                             }
                         ]
                         "buttons": [
                             {
                                 "text": buttonText | "",
-                                "hyperlink": buttonLink | ""
+                                "hyperlink": buttonLink | "",
+                                "enabled": "true" | "false"
                             }
                         ]
                     }

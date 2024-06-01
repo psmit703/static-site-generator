@@ -184,7 +184,21 @@ def generateHorizSection(sectionData, pageData, siteData):
                    (f"</a>\n" if href != "" else "") + \
                    "</div>"
         case "text":
-            raise NotImplementedError("genHorizSection() not implemented yet")
+            divId = f"id={sectionData['id']}" if sectionData['id'] != "" else ""
+            divClass = f"class=\"{sectionData['classes']}\"" if sectionData['classes'] != "" else ""
+            href = f"href=\"{sectionData['hyperlink']}\"" if sectionData['hyperlink'] == "true" else ""
+            subClass = f"class=\"{sectionData['subClasses']}\"" if sectionData['subClasses'] != "" else ""
+            subId = f"id={sectionData['subId']}" if sectionData['subId'] != "" else ""
+            styles = f"style=\"{sectionData['styles']}\"" if sectionData['styles'] != "" else ""
+            subStyles = f"style=\"{sectionData['subStyles']}\"" if sectionData['subStyles'] != "" else ""
+            title = f"<h4 class=\"text-center\">{sectionData['title']}</h4>\n" if sectionData['title'] != "" else ""
+
+            return f"<div {divId} {divClass} {styles}>" + \
+                   (f"<a {href}>\n" if href != "" else "") + \
+                   title + \
+                   f"<p {subId} {subClass} {subStyles}>{sectionData['text']}</p>\n" + \
+                   (f"</a>\n" if href != "" else "") + \
+                   "</div>"
         case "markdown":
             html = md.markdown(sectionData['markdown'])
             divId = f"id={sectionData['id']}" if sectionData['id'] != "" else ""
@@ -210,18 +224,49 @@ def generateHorizSection(sectionData, pageData, siteData):
                 (f"</a>\n" if href != "" else "") + \
                 "</div>"
         case "card":
-            raise NotImplementedError("genHorizSection() not implemented yet")
+            cardData = sectionData['card']
+
+            cardHeader = f"<h5 class=\"card-title\">{cardData['title']}" if cardData['title'] != "" else ""
+            cardHeader += ("<h5 class =\"card-title\">" if cardHeader == "" else "") + \
+                f"<span style =\"float: right;\">{cardData['dates']}</span></h5>" if cardData['headerNote'] != "" else \
+                ("</h5>" if cardHeader != "" else "")
+
+            cardBody = []
+
+            for section in cardData['sections']:
+                sectionTitle = f"<h6>{section['title']}</h6>" if section['title'] != "" else ""
+                content = addAttrs(md.markdown(
+                    section['sectionText']), "card-text", "", "")
+                sectionNotes = md.markdown(
+                    section['sectionNotes']) if section['sectionNotes'] != "" else ""
+                cardBody.append(sectionTitle + content +
+                                "<br><br>" + sectionNotes)
+
+            cardBody = "<hr />".join(cardBody)
+
+            cardButtons = []
+
+            for button in cardData['buttons']:
+                text = button['text']
+                href = f"href=\"{button['link']}\"" if button['link'] != "" else ""
+                enabled = "style: \"pointer-events: none;\"" if button['enabled'] == "false" else ""
+
+                cardButtons.append(
+                    f"<a class=\"btn btn-primary card-link\" {href} {enabled}>{text}</a>")
+
+            cardButtons = "\n".join(cardButtons)
+
+            return f"<div class=\"card-body\">\n" + cardHeader + cardBody + \
+                cardButtons + "</div>"
         case "rawHTML":
             return sectionData['rawHTML']
         case _:
             raise ValueError(
                 f"Invalid horizontal section type\n\nPage Data:\n{pageData}\n\nSection Data:\n{sectionData}")
 
-    raise NotImplementedError("genHorizSection() not implemented yet")
-
 
 def addAttrs(html, classes, id, styles):
-    # String -> String
+    # String -> String -> String -> String -> String
     # adds classes and ids to HTML elements
     # returns the edited HTML
     # for these purposes, only does it for div, ul, and p
