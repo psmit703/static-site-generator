@@ -54,7 +54,7 @@
     <!-- navbar -->
     <nav class="navbar navbar-expand-md navbar-light bg-light py-2 mb-5 shadow fixed-top" id="navbar">
         <div class="container">
-            <a class="navbar-brand navbar-brand-custom" href="/">Pete Smith
+            <a class="navbar-brand navbar-brand-custom" href="$REF-NavTitleHref">$REF-NavTitle
             </a>
 
             <!-- navbar toggle button - only visible in mobile format -->
@@ -66,24 +66,7 @@
             <!-- navbar links -->
             <div class="collapse navbar-collapse" id="navbar-options">
                 <ul class="navbar-nav ml-auto" itemscope itemtype="https://schema.org/SiteNavigationElement">
-                    <li class="nav-item mx-2" itemprop="name">
-                        <a class="nav-link nav-home-custom text-center" href="/" itemprop="url">Home</a>
-                    </li>
-                    <li class="nav-item mx-2" itemprop="name">
-                        <a class="nav-link nav-resume-custom text-center" href="/resume.html" itemprop="url">Résumé</a>
-                    </li>
-                    <li class="nav-item mx-2" itemprop="name">
-                        <a class="nav-link nav-publications-custom text-center" href="/publications.html"
-                            itemprop="url">Publications</a>
-                    </li>
-                    <li class="nav-item mx-2" itemprop="name">
-                        <a class="nav-link nav-coding-custom text-center" href="/coding.html" itemprop="url">Coding
-                            Projects</a>
-                    </li>
-                    <li class="nav-item mx-2" itemprop="name">
-                        <a class="nav-link nav-writing-custom text-center" href="/writing.html" itemprop="url">Writing
-                            Samples</a>
-                    </li>
+                    $REF-NavItems
                 </ul>
             </div>
         </div>
