@@ -165,7 +165,78 @@ def generateHorizSection(sectionData, pageData, siteData):
     # JSON -> JSON -> JSON -> String
     # generates the HTML for a horizontal section of a vertical section of a page
 
+    match type:
+        case "image":
+            divId = f"id={sectionData['id']}" if sectionData['id'] != "" else ""
+            divClass = f"class=\"{sectionData['classes']}\"" if sectionData['classes'] != "" else ""
+            imgTitle = f"title=\"{sectionData['title']}\"" if sectionData['title'] != "" else ""
+            imgAlt = f"alt=\"{sectionData['alt']}\"" if sectionData['alt'] != "" else ""
+            src = f"src=\"{sectionData['resourceLink']}\""
+            href = f"href=\"{sectionData['hyperlink']}\"" if sectionData['hyperlink'] == "true" else ""
+            subClass = f"class=\"{sectionData['subClasses']}\"" if sectionData['subClasses'] != "" else ""
+            subId = f"id={sectionData['subId']}" if sectionData['subId'] != "" else ""
+            styles = f"style=\"{sectionData['styles']}\"" if sectionData['styles'] != "" else ""
+            subStyles = f"style=\"{sectionData['subStyles']}\"" if sectionData['subStyles'] != "" else ""
+
+            return f"<div {divId} {divClass} {styles}>\n" + \
+                   (f"<a {href}>\n" if href != "" else "") + \
+                   f"<img {imgTitle} {imgAlt} {src} {subId} {subClass} {subStyles}>\n" + \
+                   (f"</a>\n" if href != "" else "") + \
+                   "</div>"
+        case "text":
+            raise NotImplementedError("genHorizSection() not implemented yet")
+        case "markdown":
+            html = md.markdown(sectionData['markdown'])
+            divId = f"id={sectionData['id']}" if sectionData['id'] != "" else ""
+            divClass = f"class=\"{sectionData['classes']}\"" if sectionData['classes'] != "" else ""
+            href = f"href=\"{sectionData['hyperlink']}\"" if sectionData['hyperlink'] == "true" else ""
+            subClass = f"class=\"{sectionData['subClasses']}\"" if sectionData['subClasses'] != "" else ""
+            subId = f"id={sectionData['subId']}" if sectionData['subId'] != "" else ""
+            styles = f"style=\"{sectionData['styles']}\"" if sectionData['styles'] != "" else ""
+            subStyles = f"style=\"{sectionData['subStyles']}\"" if sectionData['subStyles'] != "" else ""
+            title = f"<h4 class=\"text-center\">{sectionData['title']}</h4>\n" if sectionData['title'] != "" else ""
+
+            elmtsList = html.split("\n")
+            i = 0
+            while i < len(elmtsList):
+                elmtsList[i] = addAttrs(
+                    elmtsList[i], subClass, subId, subStyles)
+                i += 1
+            html = "".join(elmtsList)
+
+            return f"<div {divId} {divClass} {styles}>" + \
+                (f"<a {href}>\n" if href != "" else "") + \
+                title + html + \
+                (f"</a>\n" if href != "" else "") + \
+                "</div>"
+        case "card":
+            raise NotImplementedError("genHorizSection() not implemented yet")
+        case "rawHTML":
+            return sectionData['rawHTML']
+        case _:
+            raise ValueError(
+                f"Invalid horizontal section type\n\nPage Data:\n{pageData}\n\nSection Data:\n{sectionData}")
+
     raise NotImplementedError("genHorizSection() not implemented yet")
+
+
+def addAttrs(html, classes, id, styles):
+    # String -> String
+    # adds classes and ids to HTML elements
+    # returns the edited HTML
+    # for these purposes, only does it for div, ul, and p
+
+    if html.startswith("<div") or html.startswith("<ul") or html.startswith("<p"):
+        endTag = html.find(">") + 1
+        tag = html[0:endTag]
+        innerStuff = tag.split(" ")
+        innerStuff.append(f"id=\"{id}\"")
+        innerStuff.append(f"class=\"{classes}\"")
+        innerStuff.append(f"style=\"{styles}\"")
+        tag = " ".join(innerStuff)
+        return tag + html[endTag:]
+
+    return html
 
 
 def replaceScripts(template, pageData, siteData):
